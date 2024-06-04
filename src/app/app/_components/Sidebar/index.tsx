@@ -3,8 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "./ClientSideProvider";
 import { DashboardSidebarHeader, DashboardSidebarMain, DashboardSidebarNav, DashboardSidebarNavHeader, DashboardSidebarNavHeaderTitle, DashboardSidebarNavLink, DashboardSidebarNavMain } from "@/components/dashboard/sidebar";
-import { HomeIcon, MixerVerticalIcon } from "@radix-ui/react-icons"; // Importe o ícone X
-import { Logo } from "@/components/logo";
+import { HomeIcon, MixerVerticalIcon } from "@radix-ui/react-icons"; 
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 
 export function Sidebar() {
