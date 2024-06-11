@@ -4,9 +4,15 @@ import { useState } from "react"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function Component() {
   const [stages, setStages] = useState([
@@ -51,26 +57,35 @@ export default function Component() {
       status: "Em andamento",
     })
   }
-  const handleEdit = (stage) => {}
-  const handleView = (stage) => {}
-  const handleFinish = (stage) => {}
+  const handleEdit = (stage) => { }
+  const handleView = (stage) => { }
+  const handleFinish = (stage) => { }
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-6">Gerenciamento de Estágios</h1>
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <h2 className="text-lg font-bold mb-4">Novo Estágio</h2>
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 ">
             <div>
               <Label htmlFor="name">Nome do Estagiário</Label>
-              <Input id="name" name="name" value={newStage.name} onChange={handleInputChange} required />
+              <Select>
+                <SelectTrigger className="">
+                  <SelectValue placeholder="Selecione um Funcionario" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="cargo1">João</SelectItem>
+                  <SelectItem value="cargo2">Pedro</SelectItem>
+                  <SelectItem value="cargo3">Matheus</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
-            <div>
+            <div className="sm:w-full">
               <Label htmlFor="period">Período</Label>
-              <Input id="period" name="period" value={newStage.period} onChange={handleInputChange} required />
+              <Input id="period" className="sm:w-full lg:w-1/2" type="date" name="period" value={newStage.period} onChange={handleInputChange} required />
             </div>
             <div className="col-span-2">
-              <Label htmlFor="description">Descrição</Label>
+              <Label >Descrição</Label>
               <Textarea
                 id="description"
                 name="description"
@@ -81,9 +96,14 @@ export default function Component() {
             </div>
             <div>
               <Label htmlFor="status">Status</Label>
-              <Select id="status" name="status" value={newStage.status} onChange={handleInputChange}>
-                <option value="Em andamento">Em andamento</option>
-                <option value="Concluído">Concluído</option>
+              <Select name="status" value={newStage.status} onChange={handleInputChange}>
+                <SelectTrigger className="">
+                  <SelectValue placeholder="Selecione um Funcionario" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="andamento">Em andamento</SelectItem>
+                  <SelectItem value="concluido">Concluido</SelectItem>
+                </SelectContent>
               </Select>
             </div>
             <div className="col-span-2 text-right">

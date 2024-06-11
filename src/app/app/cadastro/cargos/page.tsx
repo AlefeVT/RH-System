@@ -13,7 +13,7 @@ export default function Component() {
                     <h2 className="text-2xl font-bold mb-4">Cargos</h2>
                     <Link
                         href="/app/cadastro"
-                        className="bg-primary text-white rounded-md px-6 py-2 h-10 justify-end"
+                        className=" text-white bg-gray-500 rounded-md px-6 py-2 h-10 justify-end"
                         prefetch={false}
                     >
                         <span>Voltar</span>
@@ -21,7 +21,7 @@ export default function Component() {
                 </div>
 
                 <Card>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 mt-10">
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label htmlFor="cargo-nome">Nome do Cargo</Label>
@@ -38,7 +38,7 @@ export default function Component() {
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button>Salvar</Button>
+                        <Button className="bg-gray-500">Salvar</Button>
                     </CardFooter>
                 </Card>
             </div>

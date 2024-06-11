@@ -3,8 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "./ClientSideProvider";
 import { DashboardSidebarHeader, DashboardSidebarMain, DashboardSidebarNav, DashboardSidebarNavHeader, DashboardSidebarNavHeaderTitle, DashboardSidebarNavLink, DashboardSidebarNavMain } from "@/components/dashboard/sidebar";
-import { HomeIcon, MixerVerticalIcon } from "@radix-ui/react-icons"; 
+import { HomeIcon, MixerVerticalIcon } from "@radix-ui/react-icons";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { FaRegClock } from "react-icons/fa6";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { FaRegAddressCard } from "react-icons/fa6";
+import { BsFilePerson } from "react-icons/bs";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -65,15 +69,15 @@ export function Sidebar() {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-10 flex h-screen flex-col overflow-y-hidden border-r border-border space-y-6 bg-gray-50 dark:bg-gray-900 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+      className={`absolute left-0 top-0 z-10 flex h-screen flex-col overflow-y-hidden border-r border-border space-y-6 bg-gray-200 dark:bg-gray-800/40 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } w-72`}
     >
 
       <DashboardSidebarHeader>
-      <h1 className="font-semibold text-lg">Sistema para RH</h1>
+        <h1 className="font-semibold text-lg ">SISTEMA DE RH</h1>
         <button
           className="absolute top-0 right-0 p-3"
-          onClick={() => setSidebarOpen(false)} 
+          onClick={() => setSidebarOpen(false)}
         >
           <ArrowLeftIcon className="w-8 h-8 block lg:hidden" />
         </button>
@@ -89,7 +93,7 @@ export function Sidebar() {
               href="/app/ponto"
               active={isActive('/app/ponto')}
             >
-              <MixerVerticalIcon className="w-3 h-3 mr-3" />
+              <FaRegClock className="w-3 h-3 mr-3" />
               Pontos
             </DashboardSidebarNavLink>
 
@@ -97,7 +101,7 @@ export function Sidebar() {
               href="/app/cadastro"
               active={isActive('/app/cadastro')}
             >
-              <MixerVerticalIcon className="w-3 h-3 mr-3" />
+              <IoAddCircleOutline className="w-3 h-3 mr-3" />
               Cadastros
             </DashboardSidebarNavLink>
 
@@ -105,7 +109,7 @@ export function Sidebar() {
               href="/app/ferias"
               active={isActive('/app/ferias')}
             >
-              <MixerVerticalIcon className="w-3 h-3 mr-3" />
+              <FaRegAddressCard className="w-3 h-3 mr-3" />
               Gerenciar Férias
             </DashboardSidebarNavLink>
 
@@ -113,7 +117,7 @@ export function Sidebar() {
               href="/app/treinamento"
               active={isActive('/app/treinamento')}
             >
-              <MixerVerticalIcon className="w-3 h-3 mr-3" />
+              <BsFilePerson className="w-3 h-3 mr-3" />
               Gerenciar Estagios
             </DashboardSidebarNavLink>
           </DashboardSidebarNavMain>

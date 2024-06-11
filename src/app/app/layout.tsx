@@ -18,7 +18,7 @@ export default async function Layout({ children }: PropsWithChildren) {
             <Header user={session?.user} />
           </div>
 
-          <main className='w-full h-screen overflow-y-auto'>
+          <main className='w-full h-screen overflow-y-auto bg-white'>
 
             {children}
           </main>

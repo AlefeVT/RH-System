@@ -1,41 +1,39 @@
 "use client"
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import { MinusIcon, PlusIcon } from "@radix-ui/react-icons";
 
 export default function Component() {
     return (
         <div className="flex flex-col h-screen">
-
-            <div className="flex-1 flex flex-col bg-gray-50 dark:bg-gray-950">
-
+            <div className="flex-1 flex flex-col ">
                 <div className="flex-1 grid grid-cols-2 gap-8 p-8">
-                    <Card>
+                    <Card className="bg-gray-100">
                         <CardHeader>
-                            <CardTitle>Hora de entrada</CardTitle>
+                            <CardTitle className="text-gray-800 p-6">Hora de entrada</CardTitle>
                         </CardHeader>
                         <CardContent className="flex items-center justify-center">
-                            <Button variant="outline" size="lg">
-                                {/* <PlusIcon className="h-6 w-6" /> */}
+                            <Button variant="outline" className="bg-gray-600 text-white mt-10 p-6" size="lg">
+                                <PlusIcon className="h-4 w-4" />
                                 Bater ponto
                             </Button>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Card className="bg-gray-100">
                         <CardHeader>
-                            <CardTitle>Hora de saída</CardTitle>
+                            <CardTitle className="text-gray-800 p-6">Hora de saída</CardTitle>
                         </CardHeader>
                         <CardContent className="flex items-center justify-center">
-                            <Button variant="outline" size="lg">
-                                {/* <MinusIcon className="h-6 w-6" /> */}
+                            <Button variant="outline" className="bg-gray-600 text-white mt-10 p-6" size="lg">
+                                <MinusIcon className="h-4 w-4" />
                                 Bater ponto
                             </Button>
                         </CardContent>
                     </Card>
                 </div>
-
                 <div className="flex-1 p-8 mb-20">
-                    <Card>
+                    <Card className="bg-gray-100 text-gray-800">
                         <CardHeader>
                             <CardTitle>Registros de horas de funcionários</CardTitle>
                         </CardHeader>
@@ -43,7 +41,6 @@ export default function Component() {
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                       
                                         <TableHead>Hora de entrada</TableHead>
                                         <TableHead>Hora de saída</TableHead>
                                         <TableHead>Total de Horas</TableHead>
@@ -71,7 +68,6 @@ export default function Component() {
                     </Card>
                 </div>
             </div>
-            
         </div>
-    )
+    );
 }

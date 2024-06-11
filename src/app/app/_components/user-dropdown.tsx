@@ -12,6 +12,7 @@ import {
 import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
 import Link from 'next/link'
+import { IoPersonOutline } from "react-icons/io5";
 
 type UserDropDownProps = {
   user: Session['user']
@@ -23,7 +24,7 @@ export function UserDropDown({ user }: UserDropDownProps) {
       <DropdownMenuTrigger asChild>
         <Button
           variant="link"
-          className="relative h-8 flex items-center justify-between w-8 space-x-3 !px-0"
+          className="relative h-8 flex items-center justify-between w-8 space-x-3 !px-0 "
         >
           <Avatar className="h-8 w-8 ">
             {/* <AvatarImage
@@ -31,10 +32,10 @@ export function UserDropDown({ user }: UserDropDownProps) {
               alt={user?.name as string}
             /> */}
             {/* <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback> */}
-            <AvatarFallback className='' >U</AvatarFallback>
+            <AvatarFallback className='bg-gray-600' ><IoPersonOutline className='text-white'/></AvatarFallback>
           </Avatar>
 
-          <div className="flex flex-col flex-1 space-y-1 text-left">
+          <div className="flex flex-col flex-1 space-y-1 text-left ">
             {user?.name && (
               <p className="text-sm font-medium leading-none">{user?.name}</p>
             )}
