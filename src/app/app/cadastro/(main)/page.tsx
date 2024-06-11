@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Component() {
   return (
-    <div className="flex flex-col items-center justify-center h-80 bg-gray-100 dark:bg-gray-950">
+    <div className="flex flex-col items-center justify-center h-1/2">
       <div className="w-3/4 p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="space-y-4">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50">Cadastros Essenciais</h1>
@@ -12,7 +12,7 @@ export default function Component() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link
               href="cadastro/cargos"
-              className="flex flex-col items-center justify-center bg-gray-900 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
+              className="flex flex-col items-center justify-center bg-gray-600 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
               prefetch={false}
             >
               <BriefcaseIcon className="h-8 w-8 mb-2" />
@@ -20,7 +20,7 @@ export default function Component() {
             </Link>
             <Link
               href="cadastro/funcionarios"
-              className="flex flex-col items-center justify-center bg-gray-900 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
+              className="flex flex-col items-center justify-center bg-gray-600 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
               prefetch={false}
             >
               <UsersIcon className="h-8 w-8 mb-2" />
@@ -28,7 +28,7 @@ export default function Component() {
             </Link>
             <Link
               href="cadastro/contratos"
-              className="flex flex-col items-center justify-center bg-gray-900 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
+              className="flex flex-col items-center justify-center bg-gray-600 hover:bg-gray-800 text-white rounded-lg py-4 px-6 transition-colors"
               prefetch={false}
             >
               <FileTextIcon className="h-8 w-8 mb-2" />

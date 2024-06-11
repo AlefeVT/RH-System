@@ -71,8 +71,8 @@ export default function Component() {
         <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8">
             <h1 className="text-2xl font-bold mb-6">Gestão de férias</h1>
             <div className="grid gap-6">
-                <Card>
-                    <CardHeader>
+                <Card className="">
+                    <CardHeader className="">
                         <CardTitle>Adicionar férias</CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -86,6 +86,7 @@ export default function Component() {
                                             employee: employees.find((emp) => emp.id === parseInt(e.target.value)),
                                         })
                                     }
+                                    className="bg-gray-100"
                                 >
                                     <SelectTrigger>
                                         <SelectValue placeholder="Selecione Funcionário" />
@@ -98,11 +99,11 @@ export default function Component() {
                                         ))}
                                     </SelectContent>
                                 </Select>
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <Popover>
                                         <PopoverTrigger asChild>
-                                            <Button variant="outline" className="flex-col items-start w-full h-auto">
-                                                <span className="font-semibold uppercase text-[0.65rem]">Data de início</span>
+                                            <Button variant="outline" className="flex-col items-start w-full h-auto bg-gray-100">
+                                                <span className="font-semibold uppercase text-[0.65rem] text-gray-800">Data de início</span>
                                                 <span className="font-normal">{newVacation.start ? newVacation.start : "Selecione"}</span>
                                             </Button>
                                         </PopoverTrigger>
@@ -115,8 +116,8 @@ export default function Component() {
                                     </Popover>
                                     <Popover>
                                         <PopoverTrigger asChild>
-                                            <Button variant="outline" className="flex-col items-start w-full h-auto">
-                                                <span className="font-semibold uppercase text-[0.65rem]">Data final</span>
+                                            <Button variant="outline" className="flex-col items-start w-full h-auto bg-gray-100">
+                                                <span className="font-semibold uppercase text-[0.65rem] text-gray-800">Data final</span>
                                                 <span className="font-normal">{newVacation.end ? newVacation.end : "Selecione"}</span>
                                             </Button>
                                         </PopoverTrigger>
@@ -131,14 +132,13 @@ export default function Component() {
                             </div>
                         </form>
                     </CardContent>
-                    <CardFooter>
-                        <Button onClick={handleVacationSubmit}>Save</Button>
+                    <CardFooter className="">
+                        <Button onClick={handleVacationSubmit} className="bg-gray-600 w-full sm:w-40">Salvar</Button>
                     </CardFooter>
                 </Card>
                 <div className="grid gap-6 mb-20">
-                    
-                    <Card>
-                        <CardHeader>
+                    <Card className="">
+                        <CardHeader className="">
                             <CardTitle>Funcionários em férias</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -158,10 +158,6 @@ export default function Component() {
                                             <TableCell>{emp.vacationStart}</TableCell>
                                             <TableCell>{emp.vacationEnd}</TableCell>
                                             <TableCell className="text-right">
-                                                {/* <Button variant="ghost" size="icon" onClick={() => handleVacationEdit(emp)}>
-                                                    <PencilIcon className="h-4 w-4" />
-                                                    <span className="sr-only">Edit</span>
-                                                </Button> */}
                                                 <Button variant="ghost" size="icon" onClick={() => handleVacationDelete(emp)}>
                                                     <TrashIcon className="h-4 w-4" />
                                                     <span className="sr-only">Delete</span>
@@ -173,26 +169,23 @@ export default function Component() {
                             </Table>
                         </CardContent>
                     </Card>
-
-                    
-                    <Card>
-                        <CardHeader>
+                    <Card className="">
+                        <CardHeader className="">
                             <CardTitle>Disponibilidade</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="flex items-center w-3/5 gap-2">
+                            <div className="flex flex-col sm:flex-row items-center justify-between mb-4">
+                                <div className="flex items-center w-full sm:w-3/5 gap-2 mb-4 sm:mb-0">
                                     <Checkbox
                                         checked={filter.available}
                                         onChange={(e) => setFilter({ ...filter, available: e.target.checked })}
                                     />
                                     <span>Mostrar apenas disponível</span>
                                 </div>
-                                <div className="flex items-center w-full gap-2">
-                                    <div className="w-2/3">
-                                    <span>Ordenar por:</span>
+                                <div className="flex flex-col sm:flex-row items-center w-full gap-2">
+                                    <div className="w-full sm:w-2/3">
+                                        <span>Ordenar por:</span>
                                     </div>
-                                    
                                     <Select value={filter.sortBy} onChange={(e) => setFilter({ ...filter, sortBy: e.target.value })}>
                                         <SelectTrigger>
                                             <SelectValue placeholder="Selecione" />
@@ -237,32 +230,9 @@ export default function Component() {
                         </CardContent>
                     </Card>
                 </div>
-
-            
             </div>
-
         </div>
-    )
-}
-
-function PencilIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-            <path d="m15 5 4 4" />
-        </svg>
-    )
+    );
 }
 
 

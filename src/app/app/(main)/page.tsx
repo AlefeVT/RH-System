@@ -2,125 +2,112 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import Link from "next/link"
 import { ResponsiveBar } from "@nivo/bar"
+import { Button } from "@/components/ui/button"
 
 export default async function Page() {
 
-  return (
-    <div className="grid min-h-screen w-full overflow-hidden ">
+return (
+  <div className="grid min-h-screen w-full overflow-hidden ">
 
-      <div className="flex flex-col">
+    <div className="flex flex-col">
 
-        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-          <div className="grid gap-8 lg:grid-cols-2 mb-20">
-            <Card>
-              <CardHeader>
-                <CardTitle>Funcionários</CardTitle>
-                <CardDescription>Gerencie os funcionários da empresa.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Total Funcionários</div>
-                    <div className="text-2xl font-semibold">125</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Novas contratações (30 dias)</div>
-                    <div className="text-2xl font-semibold">12</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Terminado (30 dias)</div>
-                    <div className="text-2xl font-semibold">3</div>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Link
-                  href="app/listagem/funcionarios"
-                  className="flex flex-col items-center justify-center bg-gray-200 hover:bg-gray-300 text-black rounded-lg py-2 px-6 transition-colors"
-                  prefetch={false}
-                >
-                  <span>Ver funcionários</span>
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Comparecimento</CardTitle>
-                <CardDescription>Monitore a frequência dos funcionários e controle de tempo.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Total de horas trabalhadas (30 dias)</div>
-                    <div className="text-2xl font-semibold">12,345</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Chegadas atrasadas (30 dias)</div>
-                    <div className="text-2xl font-semibold">28</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Ausências Injustificadas (30 dias)</div>
-                    <div className="text-2xl font-semibold">6</div>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Link
-                  href="app/listagem/pontos"
-                  className="flex flex-col items-center justify-center bg-gray-200 hover:bg-gray-300 text-black rounded-lg py-2 px-6 transition-colors"
-                  prefetch={false}
-                >
-                  <span>Ver presença</span>
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card className="flex flex-col">
-                <CardHeader>
-                  <CardDescription>Funcionários por Departamento</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <BarChart className="aspect-[4/3]" />
-                </CardContent>
-              </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Pagamentos</CardTitle>
-                <CardDescription>Gerenciar folha de pagamento e remuneração de funcionários.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Total Pagamento (30 dias)</div>
-                    <div className="text-2xl font-semibold">$1,250,000</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Pagamentos pendentes</div>
-                    <div className="text-2xl font-semibold">12</div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="font-medium">Pagamentos atrasados (30 dias)</div>
-                    <div className="text-2xl font-semibold">4</div>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Link
-                  href="app/listagem/funcionarios"
-                  className="flex flex-col items-center justify-center bg-gray-200 hover:bg-gray-300 text-black rounded-lg py-2 px-6 transition-colors"
-                  prefetch={false}
-                >
-                  <span>Ver Pagamentos</span>
-                </Link>
-              </CardFooter>
-            </Card>
+      <main className="flex flex-1 flex-col p-4 md:gap-8 md:p-6">
+        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 mb-20">
 
+          <Card className="col-span-1 lg:w-full md:w-full sm:w-10 bg-gray-100 p-4">
+            <CardHeader>
+              <CardTitle className="text-sm">Férias Agendadas</CardTitle>
+              <CardDescription className="text-xs">Funcionários com férias agendadas mais próximas.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex justify-between text-xs">
+                  <span>João Silva</span>
+                  <span>05/07/2023</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Maria Oliveira</span>
+                  <span>10/07/2023</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Carlos Souza</span>
+                  <span>15/07/2023</span>
+                </li>
+              </ul>
+            </CardContent>
+            <CardFooter className="mt-4">
+              <Button variant="outline" className="text-xs">Visualizar</Button>
+            </CardFooter>
+          </Card>
 
-          </div>
-        </main>
-      </div>
+          <Card className="h-full lg:w-full md:w-full sm:w-10 bg-gray-100 p-4">
+            <CardHeader>
+              <CardTitle className="text-sm">Comparecimento</CardTitle>
+              <CardDescription className="text-xs">Monitore a frequência dos funcionários e controle de tempo.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex justify-between text-xs">
+                  <span>Total de horas trabalhadas</span>
+                  <span>12,345</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Chegadas atrasadas</span>
+                  <span>28</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Ausências Injustificadas</span>
+                  <span>15</span>
+                </li>
+              </ul>
+            </CardContent>
+            <CardFooter className="mt-4">
+              <Button variant="outline" className="text-xs">Visualizar</Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col lg:w-full md:w-full sm:w-10 h-full bg-gray-100 p-4">
+            <CardHeader>
+              <CardDescription className="text-sm">Funcionários por Departamento</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <BarChart className="aspect-[6/3]" />
+            </CardContent>
+          </Card>
+
+          <Card className="h-full lg:w-full md:w-full sm:w-10  bg-gray-100 p-4">
+            <CardHeader>
+              <CardTitle className="text-sm">Pagamentos</CardTitle>
+              <CardDescription className="text-xs">Gerenciar folha de pagamento e remuneração de funcionários.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li className="flex justify-between text-xs">
+                  <span>Total Pagamento</span>
+                  <span>R$1,250,000</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Pagamentos pendentes</span>
+                  <span>12</span>
+                </li>
+                <li className="flex justify-between text-xs">
+                  <span>Pagamentos atrasados</span>
+                  <span>4</span>
+                </li>
+              </ul>
+            </CardContent>
+            <CardFooter className="mt-20">
+              <Button variant="outline" className="text-xs">Visualizar</Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </main>
     </div>
-  )
+  </div>
+)
 }
+
+  
 
 function BarChart(props: any) {
   return (
@@ -138,7 +125,7 @@ function BarChart(props: any) {
         indexBy="name"
         margin={{ top: 0, right: 0, bottom: 40, left: 40 }}
         padding={0.3}
-        colors={["#2563eb"]}
+        colors={["#6b6f77"]}
         axisBottom={{
           tickSize: 0,
           tickPadding: 16,

@@ -16,7 +16,7 @@ export function Header({ user }: DashboardHeaderProps) {
   const { toggleSidebar, setSidebarOpen } = useSidebar();
 
   return (
-    <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
+    <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-200 dark:bg-gray-800/40 px-6 ">
       <Link href="#" className="lg:hidden" prefetch={false}>
         <span className="sr-only">Home</span>
       </Link>
